@@ -24,7 +24,10 @@ const RandomPlay = () => {
   console.log('this is the random play, ', randomPlay);
   return (
     <Container>
-      <Button onClick = {() => window.location.reload()}>Try Another One</Button>
+      <Link reloadDocument>
+        <Button >Try Another One</Button>
+      </Link>
+
       <Stack>
         <Typography>{randomPlay.play_name}</Typography>
         <img src={randomPlay.play_url_photo} width={600}/>

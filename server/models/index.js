@@ -29,5 +29,17 @@ module.exports = {
     }catch(error) {
       console.log('unable to get play, ', error);
     }
+  },
+  createPlay: async(data) => {
+    const {play_name, play_url_photo, play_description} = data;
+    const queryString = 'INSERT INTO plays (play_name, play_url_photo, play_description) VALUES ($1, $2, $3)'
+    const values = [play_name, play_url_photo, play_description];
+    try {
+      const queryResult = await db.query(queryString, values);
+      return queryResult;
+    } catch(error) {
+      console.log('unable to post play, ', error);
+    }
+
   }
 }

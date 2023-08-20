@@ -40,6 +40,15 @@ module.exports = {
     } catch(error) {
       console.log('unable to post play, ', error);
     }
-
+  },
+  deletePlay: async (id) => {
+    const queryString = 'DELETE FROM plays WHERE play_id = $1';
+    const values = [id];
+    try {
+      const queryResult = await db.query(queryString, values);
+      return queryResult;
+    } catch(error) {
+      console.log('unable to delete play, ', error);
+    }
   }
 }

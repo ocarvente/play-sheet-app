@@ -21,7 +21,6 @@ const PlayCard = ({play}) => {
               </Tooltip>
             </Box>
             <img src ={play.play_url_photo} width={250}/>
-
           </Paper>
         </Link>
       </Grid>

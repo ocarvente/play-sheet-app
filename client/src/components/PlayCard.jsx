@@ -6,23 +6,30 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
-const PlayCard = ({play}) => {
+import axios from 'axios';
+
+const PlayCard = ({play, fetch}) => {
+  const handleClick = () => {
+    axios.delete(`/plays/${play.play_id}`)
+      .then(() => fetch())
+      .catch((error) => console.log('delete didnt work ', error));
+  };
   return (
 
       <Grid item xs={4}>
-        <Link to={`/play/${play.play_id}`}>
-          <Paper>
-            <Box sx={{display: 'flex', flexDirection: 'row' , alignItems: 'center',  justifyContent:'space-between',}}>
+        <Paper>
+          <Box sx={{display: 'flex', flexDirection: 'row' , alignItems: 'center',  justifyContent:'space-between',}}>
+            <Link to={`/play/${play.play_id}`}>
               <Typography>{play.play_name}</Typography>
-              <Tooltip title="Delete">
-                <IconButton>
-                <DeleteIcon />
-                </IconButton>
-              </Tooltip>
-            </Box>
-            <img src ={play.play_url_photo} width={250}/>
-          </Paper>
-        </Link>
+            </Link>
+            <Tooltip title="Delete">
+              <IconButton onClick ={handleClick}>
+              <DeleteIcon />
+              </IconButton>
+            </Tooltip>
+          </Box>
+          <img src ={play.play_url_photo} width={250}/>
+        </Paper>
       </Grid>
 
   )

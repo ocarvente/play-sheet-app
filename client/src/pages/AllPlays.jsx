@@ -23,7 +23,7 @@ const AllPlays = () => {
   return (
     <Container>
       <Grid container spacing={2}>
-        {plays.map(play => <PlayCard key = {play.play_id} play = {play}/>)}
+        {plays.map(play => <PlayCard key = {play.play_id} play = {play} fetch={fetchAllPlays}/>)}
       </Grid>
     </Container>
   )

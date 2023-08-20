@@ -45,7 +45,6 @@ app.get('/play/random', async(req, res) => {
 app.get('/plays/:id', async(req, res) => {
   try {
     const {id} = req.params;
-
     const play = await getPlay(id);
     res.send(play);
   } catch(error) {

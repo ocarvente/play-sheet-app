@@ -18,7 +18,7 @@ const PlayCard = ({play, fetch}) => {
 
       <Grid item xs={4}>
         <Paper>
-          <Box sx={{display: 'flex', flexDirection: 'row' , alignItems: 'center',  justifyContent:'space-between',}}>
+          <Box sx={{display: 'flex', flexDirection: 'row' , alignItems: 'center',  justifyContent:'space-between', margin: 2}}>
             <Link to={`/play/${play.play_id}`}>
               <Typography>{play.play_name}</Typography>
             </Link>

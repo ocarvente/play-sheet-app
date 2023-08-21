@@ -51,18 +51,18 @@ const Canvas = ({savePhotoUrl}) => {
    return url;
   }
   return (
-    <Box sx={{display: 'flex', flexDirection:'row', justifyContent: 'center'}}>
+    <Box sx={{}}>
 
       <canvas
-      id='canvas'
-      width="750"
-      height="500"
-      onMouseDown = {startDrawing}
-      onMouseMove={draw}
-      onMouseUp={stopDrawing}
-      ref={canvasRef}
+        id='canvas'
+        width="550rem"
+        height="300rem"
+        onMouseDown = {startDrawing}
+        onMouseMove={draw}
+        onMouseUp={stopDrawing}
+        ref={canvasRef}
       ></canvas>
-      <Box sx={{display: 'flex', flexDirection: 'column'}}>
+      <Box sx={{display: 'flex', flexDirection: 'row', justifyContent:'center'}}>
         <Button  onClick={clearCanvas}>clear the board</Button>
         <Button  onClick={() => setErase(!erase)}>Click to toggle eraser</Button>
         <Button  onClick={() => savePhotoUrl(createUrl())}>Save the canvas</Button>

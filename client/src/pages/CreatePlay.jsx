@@ -33,9 +33,10 @@ const CreatePlay = () => {
   console.log('this is the data currently, ', data);
   return(
     <Container>
-      <Box sx={{display:'flex', flexDirection: 'column', justifyContent: 'center', margin: 2}}>
+      <Box sx={{display:'flex', flexDirection: 'column', marginTop: 2, alignItems: 'center'}}>
 
         <TextField
+        sx={{width: '35rem'}}
         label="Name of Play"
         variant="outlined"
         value={data.play_name}
@@ -43,10 +44,11 @@ const CreatePlay = () => {
           setData({...data, play_name: event.target.value});
         }}
         ></TextField>
-        <Box sx={{margin: 2, justifyContent: 'center'}}>
+        <Box sx={{marginTop: 2, marginBottom: 2}}>
           <Canvas savePhotoUrl ={savePhotoUrl}/>
         </Box>
         <TextField
+          sx={{width: '35rem'}}
           label="URL of Picture"
           variant="outlined"
           value={data.play_url_photo}
@@ -55,6 +57,7 @@ const CreatePlay = () => {
         }}
           ></TextField>
         <TextField
+            sx={{width: '35rem'}}
             label="Description of Play"
             variant="outlined"
             value={data.play_description}
@@ -62,7 +65,7 @@ const CreatePlay = () => {
             setData({...data, play_description: event.target.value});
         }}
             ></TextField>
-        <Button variant="outlined" onClick={submitData}>Create</Button>
+        <Button variant="outlined"  onClick={submitData}>Create</Button>
         {success&& <Typography>Successfully Posted</Typography>}
       </Box>
 

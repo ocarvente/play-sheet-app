@@ -3,7 +3,7 @@ import Container from '@mui/material/Container'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import axios from 'axios';
@@ -33,7 +33,8 @@ const CreatePlay = () => {
   console.log('this is the data currently, ', data);
   return(
     <Container>
-      <Stack>
+      <Box sx={{display:'flex', flexDirection: 'column', justifyContent: 'center', margin: 2}}>
+
         <TextField
         label="Name of Play"
         variant="outlined"
@@ -42,7 +43,9 @@ const CreatePlay = () => {
           setData({...data, play_name: event.target.value});
         }}
         ></TextField>
-        <Canvas savePhotoUrl ={savePhotoUrl}/>
+        <Box sx={{margin: 2, justifyContent: 'center'}}>
+          <Canvas savePhotoUrl ={savePhotoUrl}/>
+        </Box>
         <TextField
           label="URL of Picture"
           variant="outlined"
@@ -61,7 +64,8 @@ const CreatePlay = () => {
             ></TextField>
         <Button variant="outlined" onClick={submitData}>Create</Button>
         {success&& <Typography>Successfully Posted</Typography>}
-      </Stack>
+      </Box>
+
     </Container>
   )
 }

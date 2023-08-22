@@ -30,7 +30,7 @@ const CreatePlay = () => {
   const savePhotoUrl = (url) => {
     setData({...data, play_url_photo: url})
   }
-  console.log('this is the data currently, ', data);
+
   return(
     <Container>
       <Box sx={{display:'flex', flexDirection: 'column', marginTop: 2, alignItems: 'center'}}>

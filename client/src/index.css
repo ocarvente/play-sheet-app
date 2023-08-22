@@ -8,4 +8,19 @@
 #canvas {
   border:2px solid black !important;
 }
+.canvas-container {
+
+}
+.canvas-container:hover {
+ cursor: url('./ink_eraser_FILL0_wght400_GRAD0_opsz48.svg'), auto;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 

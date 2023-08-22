@@ -45,15 +45,14 @@ const Canvas = ({savePhotoUrl}) => {
   }
   const createUrl = () => {
    const canvas = document.getElementById('canvas');
-
    const url = canvas.toDataURL();
    console.log(url)
    return url;
   }
   return (
-    <Box sx={{}}>
-
+    <Box>
       <canvas
+        className= {erase ? 'canvas-container' : ''}
         id='canvas'
         width="550rem"
         height="300rem"
@@ -64,7 +63,12 @@ const Canvas = ({savePhotoUrl}) => {
       ></canvas>
       <Box sx={{display: 'flex', flexDirection: 'row', justifyContent:'center'}}>
         <Button  onClick={clearCanvas}>clear the board</Button>
-        <Button  onClick={() => setErase(!erase)}>Click to toggle eraser</Button>
+
+        <Button  onClick={() => setErase(!erase)}>
+          {erase ?
+            <span class="material-symbols-outlined">ink_eraser_off</span>
+            : <span class="material-symbols-outlined">ink_eraser</span> }
+        </Button>
         <Button  onClick={() => savePhotoUrl(createUrl())}>Save the canvas</Button>
       </Box>
 

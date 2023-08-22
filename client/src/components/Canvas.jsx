@@ -1,7 +1,9 @@
 import {useEffect, useRef, useState} from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import ClearIcon from '@mui/icons-material/Clear';
 const Canvas = ({savePhotoUrl}) => {
   const[drawing, setDrawing] = useState(false);
   const[erase, setErase] = useState(false)
@@ -62,13 +64,16 @@ const Canvas = ({savePhotoUrl}) => {
         ref={canvasRef}
       ></canvas>
       <Box sx={{display: 'flex', flexDirection: 'row', justifyContent:'center'}}>
-        <Button  onClick={clearCanvas}>clear the board</Button>
-
-        <Button  onClick={() => setErase(!erase)}>
+        <Tooltip title="clear all">
+          <Button  onClick={clearCanvas}><ClearIcon></ClearIcon></Button>
+        </Tooltip>
+        <Tooltip title="erase">
+          <Button onClick={() => setErase(!erase)}>
           {erase ?
             <span class="material-symbols-outlined">ink_eraser_off</span>
             : <span class="material-symbols-outlined">ink_eraser</span> }
-        </Button>
+          </Button>
+        </Tooltip>
         <Button  onClick={() => savePhotoUrl(createUrl())}>Save the canvas</Button>
       </Box>
 

@@ -16,20 +16,22 @@ const CreatePlay = () => {
   })
   const [success, setSuccess] = useState(null);
 
-
-  const submitData = async() => {
+  const save = async() => {
     try {
-     const confirm = await axios.post('/plays', data);
+     const updatedData = {...data, play_url_photo: createUrl('canvas')};
+     const confirm = await axios.post('/plays', updatedData);
      setSuccess(true);
+     setData(updatedData);
     } catch (error) {
       console.log('data unable to be submitted, ', error);
     }
-
   }
 
-  const savePhotoUrl = (url) => {
-    setData({...data, play_url_photo: url})
-  }
+  const createUrl = (id) => {
+    const canvas = document.getElementById(id);
+    const url = canvas.toDataURL();
+    return url;
+   }
 
   return(
     <Container>
@@ -45,17 +47,8 @@ const CreatePlay = () => {
         }}
         ></TextField>
         <Box sx={{marginTop: 2, marginBottom: 2}}>
-          <Canvas savePhotoUrl ={savePhotoUrl}/>
+          <Canvas />
         </Box>
-        <TextField
-          sx={{width: '35rem'}}
-          label="URL of Picture"
-          variant="outlined"
-          value={data.play_url_photo}
-          onChange={(event) => {
-          setData({...data, play_url_photo: event.target.value});
-        }}
-          ></TextField>
         <TextField
             sx={{width: '35rem'}}
             label="Description of Play"
@@ -65,7 +58,7 @@ const CreatePlay = () => {
             setData({...data, play_description: event.target.value});
         }}
             ></TextField>
-        <Button variant="outlined"  onClick={submitData}>Create</Button>
+        <Button variant="outlined" onClick={save}>Save</Button>
         {success&& <Typography>Successfully Posted</Typography>}
       </Box>
 

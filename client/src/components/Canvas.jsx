@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import ClearIcon from '@mui/icons-material/Clear';
-const Canvas = ({savePhotoUrl}) => {
+const Canvas = ({createUrl}) => {
   const[drawing, setDrawing] = useState(false);
   const[erase, setErase] = useState(false)
   const contextRef = useRef();
@@ -45,12 +45,7 @@ const Canvas = ({savePhotoUrl}) => {
   const clearCanvas = () => {
     contextRef.current.clearRect(0, 0, canvas.width, canvas.height);
   }
-  const createUrl = () => {
-   const canvas = document.getElementById('canvas');
-   const url = canvas.toDataURL();
-   console.log(url)
-   return url;
-  }
+
   return (
     <Box>
       <canvas
@@ -74,7 +69,6 @@ const Canvas = ({savePhotoUrl}) => {
             : <span class="material-symbols-outlined">ink_eraser</span> }
           </Button>
         </Tooltip>
-        <Button  onClick={() => savePhotoUrl(createUrl())}>Save the canvas</Button>
       </Box>
 
     </Box>

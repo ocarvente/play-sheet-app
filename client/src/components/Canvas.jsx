@@ -1,11 +1,12 @@
 import {useEffect, useRef, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import ClearIcon from '@mui/icons-material/Clear';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
-const Canvas = ({createUrl}) => {
+const Canvas = ({createUrl, source}) => {
   const[drawing, setDrawing] = useState(false);
   const[erase, setErase] = useState(false)
   const contextRef = useRef();
@@ -15,12 +16,20 @@ const Canvas = ({createUrl}) => {
     const canvas = document.getElementById("canvas");
     canvasRef.current = canvas;
     const ctx = canvas.getContext("2d");
+    const image = new Image(); // Using optional size for image
+
+    image.onload = function () {
+      ctx.drawImage(image, 0, 0, 550, 300);
+    } ;
+    console.log('i am using this as the source', source);
+
+    image.src = source;
+
     ctx.lineCap = 'round';
     ctx.strokeStyle = erase? 'white': 'black';
     ctx.lineWidth = 5;
-
     contextRef.current = ctx;
-  }, [erase])
+  }, [erase, source])
 
   const startDrawing = (event) => {
     const{offsetX, offsetY} = event.nativeEvent;

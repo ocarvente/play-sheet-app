@@ -12,7 +12,7 @@ export default function PagesAppBar() {
 
   const navigate = useNavigate();
   const handleClick =(e) => {
-    navigate(`/${e.target.name}`);
+    navigate(`/${e.target.name}`, { state: {} });
   }
   return (
     <Box sx={{ flexGrow: 1 }}>

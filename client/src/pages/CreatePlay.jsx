@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Container from '@mui/material/Container'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import Canvas from '../components/Canvas.jsx';
+import {useLocation} from 'react-router-dom';
 const CreatePlay = () => {
   const [data, setData] = useState({
     play_name: "",
@@ -14,7 +15,13 @@ const CreatePlay = () => {
     play_description: ""
   })
   const [success, setSuccess] = useState(null);
-
+  const {state} = useLocation();
+  console.log(state);
+  useEffect(() => {
+    if(Object.keys(state).length > 0) {
+      setData(state.play);
+    }
+  }, []);
   const save = async() => {
     try {
      const updatedData = {...data, play_url_photo: createUrl('canvas')};
@@ -30,7 +37,7 @@ const CreatePlay = () => {
     const canvas = document.getElementById(id);
     const url = canvas.toDataURL();
     return url;
-   }
+  }
 
   return(
     <Container>
@@ -46,7 +53,7 @@ const CreatePlay = () => {
         }}
         ></TextField>
         <Box sx={{marginTop: 2, marginBottom: 2}}>
-          <Canvas />
+          <Canvas  source={data.play_url_photo}/>
         </Box>
         <TextField
             sx={{width: '35rem'}}

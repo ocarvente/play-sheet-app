@@ -1,30 +1,31 @@
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import {Link} from 'react-router-dom';
-import DeleteIcon from '@mui/icons-material/Delete';
+import {Link, useNavigate} from 'react-router-dom';
+import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 
 const PlayCard = ({play, fetch}) => {
+  const navigate = useNavigate();
   const handleClick = () => {
-    axios.delete(`/plays/${play.play_id}`)
-      .then(() => fetch())
-      .catch((error) => console.log('delete didnt work ', error));
-  };
-  return (
 
+    navigate('/create', { state: {play} });
+    console.log('clicked');
+  };
+
+  return (
       <Grid item xs={4}>
         <Paper>
           <Box sx={{display: 'flex', flexDirection: 'row' , alignItems: 'center',  justifyContent:'space-between', margin: 2}}>
             <Link to={`/play/${play.play_id}`}>
               <Typography>{play.play_name}</Typography>
             </Link>
-            <Tooltip title="Delete">
+            <Tooltip title="Edit">
               <IconButton onClick ={handleClick}>
-              <DeleteIcon />
+                <EditIcon />
               </IconButton>
             </Tooltip>
           </Box>

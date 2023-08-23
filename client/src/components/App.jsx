@@ -11,14 +11,13 @@ const App = () => {
 
   return (
     <BrowserRouter>
-    <PagesAppBar/>
+      <PagesAppBar/>
       <Routes>
         <Route path="/" element={<Main/>}/>
         <Route path="/allplays" element={<AllPlays/>}/>
         <Route path="/play/:id" element={<PlayPage/>}/>
         <Route path="/random" element={<RandomPlay />}/>
         <Route path="/create" element={<CreatePlay />}/>
-
       </Routes>
     </BrowserRouter>
 

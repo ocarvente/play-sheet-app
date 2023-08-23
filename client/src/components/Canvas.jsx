@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import ClearIcon from '@mui/icons-material/Clear';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 const Canvas = ({createUrl}) => {
   const[drawing, setDrawing] = useState(false);
   const[erase, setErase] = useState(false)
@@ -49,7 +50,7 @@ const Canvas = ({createUrl}) => {
   return (
     <Box>
       <canvas
-        className= {erase ? 'canvas-container' : ''}
+        className= {erase ? 'canvas-container' : 'canvas-container-default'}
         id='canvas'
         width="550rem"
         height="300rem"
@@ -67,6 +68,11 @@ const Canvas = ({createUrl}) => {
           {erase ?
             <span class="material-symbols-outlined">ink_eraser_off</span>
             : <span class="material-symbols-outlined">ink_eraser</span> }
+          </Button>
+        </Tooltip>
+        <Tooltip title='draw'>
+          <Button onClick={()=> setErase(false)}>
+            <CreateOutlinedIcon></CreateOutlinedIcon>
           </Button>
         </Tooltip>
       </Box>

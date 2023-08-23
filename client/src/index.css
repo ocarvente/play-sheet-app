@@ -8,11 +8,11 @@
 #canvas {
   border:2px solid black !important;
 }
-.canvas-container {
-
+.canvas-container-default:hover {
+  cursor: url('./edit_FILL0_wght400_GRAD0_opsz48.svg') 0 20, auto;
 }
 .canvas-container:hover {
- cursor: url('./ink_eraser_FILL0_wght400_GRAD0_opsz48.svg'), auto;
+ cursor: url('./ink_eraser_FILL0_wght400_GRAD0_opsz48.svg') 0 20, auto;
 }
 
 .material-symbols-outlined {

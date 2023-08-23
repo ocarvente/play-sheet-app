@@ -5,7 +5,6 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
 import axios from 'axios';
 import Canvas from '../components/Canvas.jsx';
 const CreatePlay = () => {

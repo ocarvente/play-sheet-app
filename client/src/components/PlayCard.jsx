@@ -17,6 +17,12 @@ const PlayCard = ({play, fetch}) => {
     console.log('clicked');
   };
 
+  const handleDelete = () => {
+    axios.delete(`/plays/${play.play_id}`).then(res => {
+      fetch();
+    });
+  };
+
   return (
       <Grid item xs={4}>
         <Paper>
@@ -30,7 +36,7 @@ const PlayCard = ({play, fetch}) => {
               </IconButton>
             </Tooltip>
             <Tooltip title="Delete">
-              <IconButton onClick ={handleClick}>
+              <IconButton onClick ={handleDelete}>
                 <DeleteIcon />
               </IconButton>
             </Tooltip>

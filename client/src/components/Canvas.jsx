@@ -21,16 +21,13 @@ const Canvas = ({createUrl, source}) => {
     image.onload = function () {
       const aspectRatio = this.naturalHeight / this.naturalWidth;
       const imageHeight = canvas.height;
-      const imageWidth = imageHeight/aspectRatio;
+      const imageWidth = this.naturalWidth === canvas.width ? this.naturalWidth : imageHeight/aspectRatio;
       const dx = (canvas.width - imageWidth)/ 2;
       console.log(imageHeight, imageWidth)
       ctx.drawImage(image, dx,0, imageWidth, imageHeight);
     };
     image.setAttribute('crossorigin', 'anonymous');
-    console.log('i am using this as the source', source);
-
     image.src = source;
-
     ctx.lineCap = 'round';
     ctx.strokeStyle = erase? 'white': 'black';
     ctx.lineWidth = 5;

@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import {Link, useNavigate} from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
@@ -10,7 +11,7 @@ import axios from 'axios';
 
 const PlayCard = ({play, fetch}) => {
   const navigate = useNavigate();
-  const handleClick = () => {
+  const handleEdit = () => {
 
     navigate('/create', { state: {play} });
     console.log('clicked');
@@ -24,8 +25,13 @@ const PlayCard = ({play, fetch}) => {
               <Typography>{play.play_name}</Typography>
             </Link>
             <Tooltip title="Edit">
-              <IconButton onClick ={handleClick}>
+              <IconButton onClick ={handleEdit}>
                 <EditIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Delete">
+              <IconButton onClick ={handleClick}>
+                <DeleteIcon />
               </IconButton>
             </Tooltip>
           </Box>

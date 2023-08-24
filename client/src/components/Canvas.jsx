@@ -19,8 +19,13 @@ const Canvas = ({createUrl, source}) => {
     const image = new Image(); // Using optional size for image
 
     image.onload = function () {
-      ctx.drawImage(image, 0, 0, 550, 300);
-    } ;
+      const aspectRatio = this.naturalHeight / this.naturalWidth;
+      const imageHeight = canvas.height;
+      const imageWidth = imageHeight/aspectRatio;
+      const dx = (canvas.width - imageWidth)/ 2;
+      console.log(imageHeight, imageWidth)
+      ctx.drawImage(image, dx,0, imageWidth, imageHeight);
+    };
     image.setAttribute('crossorigin', 'anonymous');
     console.log('i am using this as the source', source);
 
@@ -62,8 +67,8 @@ const Canvas = ({createUrl, source}) => {
       <canvas
         className= {erase ? 'canvas-container' : 'canvas-container-default'}
         id='canvas'
-        width="550rem"
-        height="300rem"
+        width= {550}
+        height={350}
         onMouseDown = {startDrawing}
         onMouseMove={draw}
         onMouseUp={stopDrawing}

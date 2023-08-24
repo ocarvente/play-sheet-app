@@ -30,16 +30,18 @@ const PlayCard = ({play, fetch}) => {
             <Link to={`/play/${play.play_id}`}>
               <Typography>{play.play_name}</Typography>
             </Link>
-            <Tooltip title="Edit">
-              <IconButton onClick ={handleEdit}>
-                <EditIcon />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Delete">
-              <IconButton onClick ={handleDelete}>
-                <DeleteIcon />
-              </IconButton>
-            </Tooltip>
+            <Box>
+              <Tooltip title="Edit">
+                <IconButton onClick={handleEdit}>
+                  <EditIcon />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Delete">
+                <IconButton onClick={handleDelete}>
+                  <DeleteIcon />
+                </IconButton>
+              </Tooltip>
+            </Box>
           </Box>
           <img src ={play.play_url_photo} width={250}/>
         </Paper>

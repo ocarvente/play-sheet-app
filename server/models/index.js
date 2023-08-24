@@ -50,5 +50,16 @@ module.exports = {
     } catch(error) {
       console.log('unable to delete play, ', error);
     }
+  },
+  updatePlay: async (id, data) => {
+    try {
+      const {play_name, play_url_photo, play_description} = data;
+      const queryString = 'UPDATE plays SET play_name = $1,play_url_photo = $2, play_description = $3 WHERE play_id = $4';
+      const values = [play_name, play_url_photo, play_description, id];
+      const queryResult = await db.query(queryString, values);
+      return queryResult;
+    } catch(error) {
+      console.log('unable to update play, ', error);
+    }
   }
 }

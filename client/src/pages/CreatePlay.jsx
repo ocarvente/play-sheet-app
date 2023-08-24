@@ -25,7 +25,7 @@ const CreatePlay = () => {
   const save = async() => {
     try {
      const updatedData = {...data, play_url_photo: createUrl('canvas')};
-     const confirm = await axios.post('/plays', updatedData);
+     const confirm = data.play_id ? await axios.patch(`/plays/${data.play_id}`, updatedData): await axios.post('/plays', updatedData);
      setSuccess(true);
      setData(updatedData);
     } catch (error) {

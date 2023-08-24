@@ -21,6 +21,7 @@ const Canvas = ({createUrl, source}) => {
     image.onload = function () {
       ctx.drawImage(image, 0, 0, 550, 300);
     } ;
+    image.setAttribute('crossorigin', 'anonymous');
     console.log('i am using this as the source', source);
 
     image.src = source;

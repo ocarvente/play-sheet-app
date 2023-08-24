@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
-const{getAllPlays, getPlayRandom, getPlay, createPlay, deletePlay} = require('./models');
+const{getAllPlays, getPlayRandom, getPlay, createPlay, deletePlay, updatePlay} = require('./models');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -61,6 +61,15 @@ app.delete('/plays/:id', async (req, res) => {
   }
 })
 
+app.patch('/plays/:id', async (req, res) => {
+  try {
+    const {id} = req.params;
+    const result = await updatePlay(id, req.body);
+    res.send(result);
+  } catch(error) {
+    res.status(404).send();
+  }
+})
 
 
 app.get('*', (req,res) =>{

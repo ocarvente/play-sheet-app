@@ -13,7 +13,7 @@ const PlayCard = ({play, fetch}) => {
   const navigate = useNavigate();
   const handleEdit = () => {
 
-    navigate('/create', { state: {play} });
+    navigate(`/edit/${play.play_id}`, { state: {play} });
     console.log('clicked');
   };
 

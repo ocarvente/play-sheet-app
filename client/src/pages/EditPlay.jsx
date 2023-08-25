@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import Canvas from '../components/Canvas.jsx';
-
+import {useLocation} from 'react-router-dom';
 const CreatePlay = () => {
   const [data, setData] = useState({
     play_name: "",
@@ -15,11 +15,17 @@ const CreatePlay = () => {
     play_description: ""
   })
   const [success, setSuccess] = useState(null);
+  const {state} = useLocation();
 
+  useEffect(() => {
+    if(state && Object.keys(state).length > 0) {
+      setData(state.play);
+    }
+  }, [state]);
   const save = async() => {
     try {
      const updatedData = {...data, play_url_photo: createUrl('canvas')};
-     const confirm = await axios.post('/plays', updatedData);
+     const confirm = await axios.patch(`/plays/${data.play_id}`, updatedData);
      setSuccess(true);
      setData(updatedData);
     } catch (error) {
@@ -47,7 +53,7 @@ const CreatePlay = () => {
         }}
         ></TextField>
         <Box sx={{marginTop: 2, marginBottom: 2}}>
-          <Canvas/>
+          <Canvas  source={data.play_url_photo}/>
         </Box>
         <TextField
             sx={{width: '35rem'}}

@@ -3,16 +3,15 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import {Link, useNavigate} from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
 import axios from 'axios';
-
+import AlertDialog from './AlertDialog.jsx';
 const PlayCard = ({play, fetch}) => {
   const navigate = useNavigate();
-  const handleEdit = () => {
 
+  const handleEdit = () => {
     navigate(`/edit/${play.play_id}`, { state: {play} });
     console.log('clicked');
   };
@@ -30,16 +29,14 @@ const PlayCard = ({play, fetch}) => {
             <Link to={`/play/${play.play_id}`}>
               <Typography>{play.play_name}</Typography>
             </Link>
-            <Box>
+            <Box sx={{display:'flex', flexDirection:'row'}}>
               <Tooltip title="Edit">
                 <IconButton onClick={handleEdit}>
                   <EditIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Delete">
-                <IconButton onClick={handleDelete}>
-                  <DeleteIcon />
-                </IconButton>
+                <AlertDialog handleDelete = {handleDelete}/>
               </Tooltip>
             </Box>
           </Box>

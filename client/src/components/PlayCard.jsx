@@ -43,7 +43,9 @@ const PlayCard = ({play, fetch}) => {
               </Tooltip>
             </Box>
           </Box>
-          <img src ={play.play_url_photo} width={250}/>
+          <Box sx={{display:'flex', justifyContent: 'center'}}>
+            <img src ={play.play_url_photo} width={250}/>
+          </Box>
         </Paper>
       </Grid>
 

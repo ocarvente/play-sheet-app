@@ -7,7 +7,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import Canvas from '../components/Canvas.jsx';
-import {useLocation} from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
+
 const CreatePlay = () => {
   const [data, setData] = useState({
     play_name: "",
@@ -16,12 +17,15 @@ const CreatePlay = () => {
   })
   const [success, setSuccess] = useState(null);
   const {state} = useLocation();
+  const {id} = useParams();
 
   useEffect(() => {
-    if(state && Object.keys(state).length > 0) {
-      setData(state.play);
-    }
-  }, [state]);
+    axios.get('/plays/' + id)
+      .then(res => {
+        setData(res.data[0]);
+      })
+      .catch(err => console.log(err));
+  }, []);
   const save = async() => {
     try {
      const updatedData = {...data, play_url_photo: createUrl('canvas')};
@@ -39,6 +43,7 @@ const CreatePlay = () => {
     return url;
   }
 
+  console.log(data);
   return(
     <Container>
       <Box sx={{display:'flex', flexDirection: 'column', marginTop: 2, alignItems: 'center'}}>

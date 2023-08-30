@@ -7,8 +7,9 @@ import Main from '../pages/Main.jsx';
 import PlayPage from '../pages/PlayPage.jsx';
 import CreatePlay from '../pages/CreatePlay.jsx';
 import EditPlay from '../pages/EditPlay.jsx';
-
 import PagesAppBar from './PagesAppBar.jsx'
+import Categories from '../pages/Categories.jsx';
+
 const App = () => {
 
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Route path="/random" element={<RandomPlay />}/>
         <Route path="/create" element={<CreatePlay />}/>
         <Route path="/edit/:id" element={<EditPlay />}/>
-
+        <Route path="/categories" element={<Categories/>}/>
       </Routes>
     </BrowserRouter>
 

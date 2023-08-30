@@ -30,7 +30,7 @@ export default function PagesAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Play Sheet IO
           </Typography>
-
+          <Button color="inherit" name="categories" onClick={handleClick}>Categories</Button>
           <Button color="inherit" name="create" onClick={handleClick}>Create Play</Button>
           <Button color="inherit"name = 'random'onClick={handleClick}>Choose Random Play</Button>
           <Button color="inherit" name='allplays'onClick={handleClick}>See All Plays </Button>

@@ -41,7 +41,7 @@ const Categories = () => {
      );
    };
 
-   console.log(personName);
+   console.log(plays);
   return (
     <div>
       <TextField label='categories'></TextField>
@@ -54,10 +54,10 @@ const Categories = () => {
             value={personName}
             onChange={handleChange}
             input={<OutlinedInput label="Plays" />}
-            renderValue={(selected) => selected.join(', ')}
+            renderValue={(selected) => selected.map((id) => plays.find((play) => play.play_id === id).play_name).join(', ')}
             MenuProps={MenuProps} >
                 {plays.map((play) => (
-                  <MenuItem key={play.play_id} value={play.play_name}>
+                  <MenuItem key={play.play_id} value={play.play_id}>
                     <Checkbox checked={personName.indexOf(play.play_name) > -1} />
                     <ListItemText primary={play.play_name} />
                   </MenuItem>

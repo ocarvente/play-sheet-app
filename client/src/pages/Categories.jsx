@@ -8,6 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
+import Container from '@mui/material/Container';
 import axios from 'axios';
 const Categories = () => {
 
@@ -43,11 +44,13 @@ const Categories = () => {
 
    console.log(plays);
   return (
-    <div>
-      <TextField label='categories'></TextField>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-checkbox-label">Plays</InputLabel>
-        <Select
+    <Container>
+      <Box sx={{display:'flex', justifyContent: 'center', alignItems:'center', flexDirection:'column'}}>
+
+        <TextField label='categories'></TextField>
+        <FormControl sx={{ m: 1, width: 300 }}>
+          <InputLabel id="demo-multiple-checkbox-label">Plays</InputLabel>
+          <Select
             labelId="demo-multiple-checkbox-label"
             id="demo-multiple-checkbox"
             multiple
@@ -62,10 +65,11 @@ const Categories = () => {
                     <ListItemText primary={play.play_name} />
                   </MenuItem>
                 ))}
-              </Select>
-            </FormControl>
+          </Select>
+        </FormControl>
+      </Box>
 
-      </div>
+      </Container>
       );
     }
 

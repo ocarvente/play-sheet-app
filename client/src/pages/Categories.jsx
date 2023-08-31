@@ -41,19 +41,19 @@ const Categories = () => {
      );
    };
 
+   console.log(personName);
   return (
     <div>
+      <TextField label='categories'></TextField>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <TextField label="Category Name"/>
-
-        <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
-          <Select
+        <InputLabel id="demo-multiple-checkbox-label">Plays</InputLabel>
+        <Select
             labelId="demo-multiple-checkbox-label"
             id="demo-multiple-checkbox"
             multiple
             value={personName}
             onChange={handleChange}
-            input={<OutlinedInput label="Tag" />}
+            input={<OutlinedInput label="Plays" />}
             renderValue={(selected) => selected.join(', ')}
             MenuProps={MenuProps} >
                 {plays.map((play) => (

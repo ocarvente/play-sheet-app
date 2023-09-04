@@ -24,9 +24,9 @@ const CategoriesForm = ({setFormOpen}) => {
      },
    };
 
-   const [personName, setPersonName] = useState([]);
+   const [playList, setPlayList] = useState([]);
    const [plays, setPlays] = useState([]);
-
+   const [categorie, setCategorie] = useState([]);
    useEffect(() => {
     axios.get('/plays')
       .then(res => setPlays(res.data))
@@ -37,38 +37,44 @@ const CategoriesForm = ({setFormOpen}) => {
      const {
        target: { value },
      } = event;
-     setPersonName(
+     setPlayList(
        // On autofill we get a stringified value.
        typeof value === 'string' ? value.split(',') : value,
      );
    };
 
-   console.log(plays);
+   const handleSubmit = (event) => {
+    let data = {categorie:categorie, playList:playList}
+    console.log(data);
+   };
+
+   console.log(playList);
+   console.log(categorie);
   return (
     <Paper variant="outlined" elevation={0}>
       <Box sx={{display:'flex', justifyContent: 'center', alignItems:'center', flexDirection:'column'}}>
-        <TextField label='Category'></TextField>
+        <TextField label='Category' onChange ={(e) => setCategorie(e.target.value)}></TextField>
         <FormControl sx={{ m: 1, width: 300 }}>
           <InputLabel id="demo-multiple-checkbox-label">Plays</InputLabel>
           <Select
             labelId="demo-multiple-checkbox-label"
             id="demo-multiple-checkbox"
             multiple
-            value={personName}
+            value={playList}
             onChange={handleChange}
             input={<OutlinedInput label="Plays" />}
             renderValue={(selected) => selected.map((id) => plays.find((play) => play.play_id === id).play_name).join(', ')}
             MenuProps={MenuProps} >
                 {plays.map((play) => (
                   <MenuItem key={play.play_id} value={play.play_id}>
-                    <Checkbox checked={personName.indexOf(play.play_name) > -1} />
+                    <Checkbox checked={playList.indexOf(play.play_name) > -1} />
                     <ListItemText primary={play.play_name} />
                   </MenuItem>
                 ))}
           </Select>
         </FormControl>
         <Box>
-          <Button>Submit</Button>
+          <Button onClick ={handleSubmit}>Submit</Button>
           <Button onClick={()=> setFormOpen(false)}>Cancel</Button>
         </Box>
       </Box>

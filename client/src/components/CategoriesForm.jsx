@@ -47,7 +47,7 @@ const CategoriesForm = ({setFormOpen}) => {
   return (
     <Paper variant="outlined" elevation={0}>
       <Box sx={{display:'flex', justifyContent: 'center', alignItems:'center', flexDirection:'column'}}>
-        <TextField label='categories'></TextField>
+        <TextField label='Category'></TextField>
         <FormControl sx={{ m: 1, width: 300 }}>
           <InputLabel id="demo-multiple-checkbox-label">Plays</InputLabel>
           <Select

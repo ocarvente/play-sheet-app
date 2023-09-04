@@ -15,10 +15,11 @@ import Button from '@mui/material/Button';
 
 const Categories = () => {
   const[formOpen, setFormOpen] = useState(false);
+
   return (
       <div>
         <Button onClick={()=>{setFormOpen(true)}}>Add Category</Button>
-        {formOpen && <CategoriesForm />}
+        {formOpen && <CategoriesForm setFormOpen ={setFormOpen}/>}
       </div>
       );
     }

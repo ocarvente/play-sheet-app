@@ -10,8 +10,8 @@ import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
-
-const CategoriesForm = () => {
+import Button from '@mui/material/Button';
+const CategoriesForm = ({setFormOpen}) => {
 
    const ITEM_HEIGHT = 48;
    const ITEM_PADDING_TOP = 8;
@@ -67,6 +67,10 @@ const CategoriesForm = () => {
                 ))}
           </Select>
         </FormControl>
+        <Box>
+          <Button>Submit</Button>
+          <Button onClick={()=> setFormOpen(false)}>Cancel</Button>
+        </Box>
       </Box>
     </Paper>
       );

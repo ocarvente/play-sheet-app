@@ -11,13 +11,14 @@ import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import CategoriesForm from '../components/CategoriesForm.jsx';
+import Button from '@mui/material/Button';
 
 const Categories = () => {
-
+  const[formOpen, setFormOpen] = useState(false);
   return (
-
       <div>
-        <CategoriesForm />
+        <Button onClick={()=>{setFormOpen(true)}}>Add Category</Button>
+        {formOpen && <CategoriesForm />}
       </div>
       );
     }

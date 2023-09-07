@@ -1,2 +1,1 @@
-<<<<<<< HEAD
-# Playsheet Application for Ameteur Footballers :football:
+# Track your :football: plays on Playsheet IO

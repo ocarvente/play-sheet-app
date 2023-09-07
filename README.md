@@ -12,7 +12,7 @@ Welcome to Playsheet IO, your all-in-one digital playbook solution designed to t
 
 ## Behind the Scenes
 
-- **Technology Stack:** Playsheet IO is built using the Canvas API for seamless drawing capabilities and styled with Material UI for an elegant and user-friendly experience.
+- **Technology Stack:** Playsheet IO is a fullstack Javascript application(React, Express, Node, PostgresDB) built using the Canvas API for seamless drawing capabilities and styled with Material UI for an elegant and user-friendly experience.
 
 - **Design Challenges:** I tackled the design and implementation of the edit page to ensure a smooth and efficient workflow for users.
 

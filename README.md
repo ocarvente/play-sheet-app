@@ -26,4 +26,21 @@ I am committed to enhancing your coaching experience. Here's a sneak peek at wha
 
 Join me on this journey to revolutionize football coaching with Playsheet IO. Elevate your game today!
 
-## How to Install and 
+## Getting Started
+
+1. Clone the repository using the following command on the command line.
+
+git clone git@github.com:ocarvente/play-sheet-io.git
+
+2. Change directories to the newly cloned repository.
+
+cd play-sheet-io
+
+3. Install dependencies
+
+npm install
+
+
+
+
+

@@ -15,8 +15,8 @@ CREATE TABLE plays (
 
 ------COPY preset data -----
 
-COPY plays (play_id, play_name, play_url_photo, play_description)
-FROM '/Users/oscarcarvente/Desktop/plays.csv'
-DELIMITER ',' CSV HEADER;
+-- COPY plays (play_id, play_name, play_url_photo, play_description)
+-- FROM '/Users/oscarcarvente/Desktop/plays.csv'
+-- DELIMITER ',' CSV HEADER;
 
 

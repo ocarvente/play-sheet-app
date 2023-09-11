@@ -25,3 +25,5 @@ I am committed to enhancing your coaching experience. Here's a sneak peek at wha
 - **Extended Canvas Features:** Expect even more tools and options to fine-tune your plays on the digital canvas.
 
 Join me on this journey to revolutionize football coaching with Playsheet IO. Elevate your game today!
+
+## How to Install and 

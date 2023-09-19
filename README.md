@@ -103,3 +103,7 @@ You will be greated with a home screen with three different option:
 By clicking on the 'Randomly Select A Play 'button in the home screen, you will be navigated to a page that displays a full description of a randomly selected play stored in the database. When clicking on the 'Try Another One' button, the page will reload to chose another randomly selected play. This feature makes for a fun way to run something random without much planning and just for the heck of it.
 
 ![Alt text](image-1.png)
+
+### See all plays
+See your entire playbook and just be in awe at your coaching prowess by clicking on the 'See All Plays' button. The see all page displays a running list of all plays currently saved. Two icons at the top right allow you to edit or delete the play. By clicking on the title you will be redirected to the full description play for that play. By clicking on the edit you will be directed to the edit page.
+![Alt text](image-2.png)

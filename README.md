@@ -112,3 +112,11 @@ See your entire playbook and just be in awe at your coaching prowess by clicking
 So you think you can ball...this is the page for you. This page allows you to demosntrate your creativity. Draw out a play by using the canvas while using some of the initial features of the whiteboard. Expect more fun things to come in this page.
 
 ![Alt text](image-3.png)
+
+### Extras
+
+The navigation bar allows you to peruse through the different offerings from anywhere on the application.  You may have noticed the categories page, a new feature coming soon!
+![Alt text](image-4.png)
+
+After clicking the edit on a card you can edit that play in the edit mode. If you know the id for a particular play you may go directly to that url to edit.
+![Alt text](image-5.png)

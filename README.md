@@ -90,5 +90,16 @@ Now, your application is configured to connect to the PostgreSQL database with t
 
 If you encounter any issues during this setup process, please don't hesitate to reach out for assistance.
 
+## How to Use the PlaySheet IO
 
+Once everything has been configured you can run the app by running the following scripts in two seperate terminals:
+- npm run server
+- npm run client-dev
 
+You will be greated with a home screen with three different option:
+![Alt text](image.png)
+
+### Randomly Selecting a Play
+By clicking on the randomly selecting button in the home screen, you will be navigated to a page that displays a full description of a randomly selected play stored in the database. When clicking on the 'Try Another One' button, the page will reload to chose another randomly selected play. This feature makes for a fun way to run something random without much planning and just for the heck of it.
+
+![Alt text](image-1.png)

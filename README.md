@@ -100,6 +100,6 @@ You will be greated with a home screen with three different option:
 ![Alt text](image.png)
 
 ### Randomly Selecting a Play
-By clicking on the randomly selecting button in the home screen, you will be navigated to a page that displays a full description of a randomly selected play stored in the database. When clicking on the 'Try Another One' button, the page will reload to chose another randomly selected play. This feature makes for a fun way to run something random without much planning and just for the heck of it.
+By clicking on the 'Randomly Select A Play 'button in the home screen, you will be navigated to a page that displays a full description of a randomly selected play stored in the database. When clicking on the 'Try Another One' button, the page will reload to chose another randomly selected play. This feature makes for a fun way to run something random without much planning and just for the heck of it.
 
 ![Alt text](image-1.png)

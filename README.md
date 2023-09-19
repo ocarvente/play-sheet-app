@@ -107,3 +107,8 @@ By clicking on the 'Randomly Select A Play 'button in the home screen, you will 
 ### See all plays
 See your entire playbook and just be in awe at your coaching prowess by clicking on the 'See All Plays' button. The see all page displays a running list of all plays currently saved. Two icons at the top right allow you to edit or delete the play. By clicking on the title you will be redirected to the full description play for that play. By clicking on the edit you will be directed to the edit page.
 ![Alt text](image-2.png)
+
+### Create your own play
+So you think you can ball...this is the page for you. This page allows you to demosntrate your creativity. Draw out a play by using the canvas while using some of the initial features of the whiteboard. Expect more fun things to come in this page.
+
+![Alt text](image-3.png)

@@ -95,12 +95,13 @@ If you encounter any issues during this setup process, please don't hesitate to 
 Once everything has been configured you can run the app by running the following scripts in two separate terminals:
 - npm run server
 - npm run client-dev
-- Open a browser and navigate to localhost:3000.
-You will be greeted with a home screen with three different option:
+- Open a browser and navigate to localhost:3000
+
+You will be greeted with a home screen with three different options:
 ![Alt text](image.png)
 
 ### Randomly Selecting a Play
-By clicking on the 'Randomly Select A Play 'button in the home screen, you will be navigated to a page that displays a full description of a randomly selected play stored in the database. When clicking on the 'Try Another One' button, the page will reload to chose another randomly selected play. This feature makes for a fun way to run something random without much planning and just for the heck of it.
+By clicking on the 'Randomly Select A Play 'button on the home screen, you will be navigated to a page that displays a full description of a randomly selected play stored in the database. When clicking on the 'Try Another One' button, the page will reload to choose another randomly selected play. This feature makes for a fun way to run something random without much planning and just for the heck of it.
 
 ![Alt text](image-1.png)
 
@@ -109,7 +110,7 @@ See your entire playbook and just be in awe at your coaching prowess by clicking
 ![Alt text](image-2.png)
 
 ### Create your own play
-So you think you can ball...this is the page for you. This page allows you to demosntrate your creativity. Draw out a play by using the canvas while using some of the initial features of the whiteboard. Expect more fun things to come in this page.
+So you think you can ball...this is the page for you. This page allows you to demonstrate your creativity. Draw out a play by using the canvas while using some of the initial features of the whiteboard. Expect more fun things to come on this page.
 
 ![Alt text](image-3.png)
 
@@ -118,5 +119,5 @@ So you think you can ball...this is the page for you. This page allows you to de
 The navigation bar allows you to peruse through the different offerings from anywhere on the application.  You may have noticed the categories page, a new feature coming soon!
 ![Alt text](image-4.png)
 
-After clicking the edit on a card you can edit that play in the edit mode. If you know the id for a particular play you may go directly to that url to edit.
+After clicking the edit on a card you can edit that play in the edit mode. If you know the ID for a particular play you may go directly to that url to edit.
 ![Alt text](image-5.png)

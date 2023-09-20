@@ -92,11 +92,11 @@ If you encounter any issues during this setup process, please don't hesitate to 
 
 ## How to Use the PlaySheet IO
 
-Once everything has been configured you can run the app by running the following scripts in two seperate terminals:
+Once everything has been configured you can run the app by running the following scripts in two separate terminals:
 - npm run server
 - npm run client-dev
-
-You will be greated with a home screen with three different option:
+Open a browser and navigate to localhost:3000.
+You will be greeted with a home screen with three different option:
 ![Alt text](image.png)
 
 ### Randomly Selecting a Play

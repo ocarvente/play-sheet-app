@@ -79,6 +79,8 @@ app.get('*', (req,res) =>{
 app.listen(PORT, (err) => {
   if(err) {
     console.log('there was an error connecting');
+  } else {
+    console.log("connection successful")
   }
 
 });

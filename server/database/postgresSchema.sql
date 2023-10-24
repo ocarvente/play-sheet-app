@@ -25,8 +25,8 @@ CREATE TABLE categorizedPlays (
 CREATE INDEX idx_play_id ON categorizedPlays (play_id);
 CREATE INDEX idx_category_id ON categorizedPlays (category_id);
 
-COPY plays (play_id, play_name, play_url_photo, play_description)
-FROM '/Users/oscarcarvente/Desktop/plays.csv'
-DELIMITER ',' CSV HEADER;
+-- COPY plays (play_id, play_name, play_url_photo, play_description)
+-- FROM '/Users/oscarcarvente/Desktop/plays.csv'
+-- DELIMITER ',' CSV HEADER;
 
 

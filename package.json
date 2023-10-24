@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "server": "nodemon server/",
-    "client-dev": "npx webpack --watch"
+    "client-dev": "npx webpack --watch",
+    "dev": "npm run client-dev & npm run server "
   },
   "author": "Oscar Carvente",
   "license": "ISC",

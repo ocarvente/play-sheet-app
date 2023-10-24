@@ -16,13 +16,13 @@ const App = () => {
     <BrowserRouter>
       <PagesAppBar/>
       <Routes>
-        <Route path="https://playsheet-service.onrender.com/" element={<Main/>}/>
-        <Route path="https://playsheet-service.onrender.com/allplays" element={<AllPlays/>}/>
-        <Route path="https://playsheet-service.onrender.com/play/:id" element={<PlayPage/>}/>
-        <Route path="https://playsheet-service.onrender.com/random" element={<RandomPlay />}/>
-        <Route path="https://playsheet-service.onrender.com/create" element={<CreatePlay />}/>
-        <Route path="https://playsheet-service.onrender.com/edit/:id" element={<EditPlay />}/>
-        <Route path="https://playsheet-service.onrender.com/categories" element={<CategoriesPage/>}/>
+        <Route path="/" element={<Main/>}/>
+        <Route path="/allplays" element={<AllPlays/>}/>
+        <Route path="/play/:id" element={<PlayPage/>}/>
+        <Route path="/random" element={<RandomPlay />}/>
+        <Route path="/create" element={<CreatePlay />}/>
+        <Route path="/edit/:id" element={<EditPlay />}/>
+        <Route path="/categories" element={<CategoriesPage/>}/>
       </Routes>
     </BrowserRouter>
 

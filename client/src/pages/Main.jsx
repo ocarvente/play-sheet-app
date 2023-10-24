@@ -14,15 +14,15 @@ const Main = () => {
       alignItems:"center",
       minHeight:"50vh"}}
     >
-      
+
       <Stack>
-        <Link to={`/random`}>
+        <Link to={`https://playsheet-service.onrender.com/random`}>
           <Button variant='outlined' sx={{mt:3}}>Randomly Select a Play</Button>
         </Link>
-        <Link to={'/allplays'}>
+        <Link to={'https://playsheet-service.onrender.com/allplays'}>
           <Button variant='outlined' sx={{mt:3}}>See All Plays </Button>
         </Link>
-        <Link to={'/create'}>
+        <Link to={'https://playsheet-service.onrender.com/create'}>
           <Button variant='outlined' sx={{mt:3}}>Create your own play </Button>
         </Link>
 

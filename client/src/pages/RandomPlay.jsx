@@ -11,7 +11,7 @@ const RandomPlay = () => {
 
   const goToRandomPlay = async () => {
     try {
-      const total = await axios.get('/play/random');
+      const total = await axios.get('https://playsheet-service.onrender.com/play/random');
       setRandomPlay(total.data[0]);
     }catch(error) {
       console.log('unable to get total, ', error);

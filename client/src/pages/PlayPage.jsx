@@ -15,7 +15,7 @@ const PlayPage = () => {
 
   const fetchPlay = async() => {
     try {
-      const play = await axios.get(`/plays/${id}`);
+      const play = await axios.get(`https://playsheet-service.onrender.com/plays/${id}`);
       setPlay(play.data[0]);
     } catch(error) {
       console.log('unable to retrieve play, ', error);

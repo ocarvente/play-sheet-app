@@ -20,7 +20,7 @@ const CreatePlay = () => {
   const {id} = useParams();
 
   useEffect(() => {
-    axios.get('/plays/' + id)
+    axios.get('https://playsheet-service.onrender.com/plays/' + id)
       .then(res => {
         setData(res.data[0]);
       })
@@ -29,7 +29,7 @@ const CreatePlay = () => {
   const save = async() => {
     try {
      const updatedData = {...data, play_url_photo: createUrl('canvas')};
-     const confirm = await axios.patch(`/plays/${data.play_id}`, updatedData);
+     const confirm = await axios.patch(`https://playsheet-service.onrender.com/plays/${data.play_id}`, updatedData);
      setSuccess(true);
      setData(updatedData);
     } catch (error) {

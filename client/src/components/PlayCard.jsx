@@ -17,7 +17,7 @@ const PlayCard = ({play, fetch}) => {
   };
 
   const handleDelete = () => {
-    axios.delete(`/plays/${play.play_id}`).then(res => {
+    axios.delete(`https://playsheet-service.onrender.com/plays/${play.play_id}`).then(res => {
       fetch();
     });
   };

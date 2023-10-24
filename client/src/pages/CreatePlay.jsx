@@ -19,7 +19,7 @@ const CreatePlay = () => {
   const save = async() => {
     try {
      const updatedData = {...data, play_url_photo: createUrl('canvas')};
-     const confirm = await axios.post('/plays', updatedData);
+     const confirm = await axios.post('https://playsheet-service.onrender.com/plays', updatedData);
      setSuccess(true);
      setData(updatedData);
     } catch (error) {

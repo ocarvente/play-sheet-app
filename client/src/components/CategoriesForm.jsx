@@ -28,7 +28,7 @@ const CategoriesForm = ({setFormOpen}) => {
    const [plays, setPlays] = useState([]);
    const [categorie, setCategorie] = useState([]);
    useEffect(() => {
-    axios.get('/plays')
+    axios.get('https://playsheet-service.onrender.com/plays')
       .then(res => setPlays(res.data))
       .catch(err => console.log(err));
    }, []);

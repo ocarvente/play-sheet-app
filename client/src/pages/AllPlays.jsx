@@ -11,7 +11,7 @@ const AllPlays = () => {
   const[selectedPlay, setSelectedPlay] = useState({});
   const fetchAllPlays = async () => {
     try {
-      const plays = await axios.get('/plays');
+      const plays = await axios.get('https://playsheet-service.onrender.com/plays');
       setPlays(plays.data);
     } catch(error) {
       console.log('unable to fetch all plays, ', error);

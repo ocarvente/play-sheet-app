@@ -16,13 +16,13 @@ const Main = () => {
     >
 
       <Stack>
-        <Link to={`https://playsheet-service.onrender.com/random`}>
+        <Link to={`/random`}>
           <Button variant='outlined' sx={{mt:3}}>Randomly Select a Play</Button>
         </Link>
-        <Link to={'https://playsheet-service.onrender.com/allplays'}>
+        <Link to={'/allplays'}>
           <Button variant='outlined' sx={{mt:3}}>See All Plays </Button>
         </Link>
-        <Link to={'https://playsheet-service.onrender.com/create'}>
+        <Link to={'/create'}>
           <Button variant='outlined' sx={{mt:3}}>Create your own play </Button>
         </Link>
 

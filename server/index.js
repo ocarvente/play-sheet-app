@@ -4,14 +4,15 @@ const morgan = require('morgan');
 const{getAllPlays, getPlayRandom, getPlay, createPlay, deletePlay, updatePlay} = require('./models');
 const path = require('path');
 const app = express();
+var cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
 
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-// app.use('/', express.static(path.resolve(__dirname, '../client/dist')));
-
+// app.use('/', express.static(path.resolve(__dirname, '../client')));
+app.use(cors());
 app.get('/', (req,res) => {
   res.send('hello world');
 })

@@ -7,7 +7,8 @@
     "test": "test",
     "server": "nodemon server/",
     "client-dev": "npx webpack --watch",
-    "dev": "npx webpack"
+    "dev": "npx webpack",
+    "production-server":"node server/"
   },
   "author": "Oscar Carvente",
   "license": "ISC",

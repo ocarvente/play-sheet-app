@@ -69,7 +69,7 @@ const CreatePlay = () => {
             setData({...data, play_description: event.target.value});
         }}
             ></TextField>
-        <Button variant="outlined" onClick={save}>Save</Button>
+        <Button sx={{marginTop: 2, marginBottom: 2}} variant="outlined" onClick={save}>Save</Button>
         {success&& <Typography>Successfully Posted</Typography>}
       </Box>
 

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server/",
-    "production-server": "node server/"
+    "production-server": "node index.js"
   },
   "keywords": [],
   "author": "",

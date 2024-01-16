@@ -17,6 +17,9 @@ const Canvas = ({createUrl, source}) => {
     canvasRef.current = canvas;
     const ctx = canvas.getContext("2d");
     const image = new Image(); // Using optional size for image
+    canvas.addEventListener("touchstart", touch2Mouse, true);
+    canvas.addEventListener("touchmove", touch2Mouse, true);
+    canvas.addEventListener("touchend", touch2Mouse, true);
 
     image.onload = function () {
       const aspectRatio = this.naturalHeight / this.naturalWidth;
@@ -36,10 +39,13 @@ const Canvas = ({createUrl, source}) => {
 
   const startDrawing = (event) => {
     const{offsetX, offsetY} = event.nativeEvent;
+    console.log(offsetX)
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setDrawing(true)
   }
+
+
   const draw = (event) => {
     // if i am moving my mouse, but i haven't clicked i dont want to do anything
     if(!drawing) {
@@ -59,6 +65,23 @@ const Canvas = ({createUrl, source}) => {
     contextRef.current.clearRect(0, 0, canvas.width, canvas.height);
   }
 
+  function touch2Mouse(e) {
+    var theTouch = e.changedTouches[0];
+    var mouseEv;
+
+    switch(e.type) {
+      case "touchstart": mouseEv="mousedown"; break;
+      case "touchend":   mouseEv="mouseup"; break;
+      case "touchmove":  mouseEv="mousemove"; break;
+      default: return;
+
+    }
+
+    var mouseEvent = document.createEvent("MouseEvent");
+    mouseEvent.initMouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
+    theTouch.target.dispatchEvent(mouseEvent);
+    e.preventDefault();
+  }
   return (
     <Box>
       <canvas
@@ -69,6 +92,8 @@ const Canvas = ({createUrl, source}) => {
         onMouseDown = {startDrawing}
         onMouseMove={draw}
         onMouseUp={stopDrawing}
+
+
         ref={canvasRef}
       ></canvas>
       <Box sx={{display: 'flex', flexDirection: 'row', justifyContent:'center'}}>

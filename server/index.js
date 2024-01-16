@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 var cors = require('cors');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(morgan('dev'));
 app.use(express.json());

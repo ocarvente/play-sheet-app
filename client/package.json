@@ -1,0 +1,29 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-dev": "npx webpack --watch",
+    "dev": "npx webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocarvente/play-sheet-io.git"
+  },
+  "author": "Oscar Carvente",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ocarvente/play-sheet-io/issues"
+  },
+  "homepage": "https://github.com/ocarvente/play-sheet-io#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.23.8",
+    "@babel/preset-react": "^7.23.3",
+    "css-loader": "^6.9.0",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

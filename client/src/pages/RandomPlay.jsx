@@ -18,16 +18,17 @@ const RandomPlay = () => {
     }
   }
 
+  const refreshRandomPlay = (e) => {
+    e.preventDefault();
+    goToRandomPlay();
+  }
   useEffect(() => {
     goToRandomPlay();
   }, [])
   console.log('this is the random play, ', randomPlay);
   return (
     <Container>
-      <Link reloadDocument>
-        <Button >Try Another One</Button>
-      </Link>
-
+      <Button onClick={refreshRandomPlay} >Try Another One</Button>
       <Stack>
         <Typography>{randomPlay.play_name}</Typography>
         <img src={randomPlay.play_url_photo} width={600}/>

@@ -35,7 +35,7 @@ const Canvas = ({createUrl, source}) => {
     ctx.strokeStyle = erase? 'white': 'black';
     ctx.lineWidth = 5;
     contextRef.current = ctx;
-  }, [erase, source])
+  }, [source])
 
   const startDrawing = (event) => {
     const{offsetX, offsetY} = event.nativeEvent;
@@ -51,6 +51,7 @@ const Canvas = ({createUrl, source}) => {
     if(!drawing) {
       return;
     }
+    contextRef.current.strokeStyle = erase? 'white': 'black';
     const{offsetX, offsetY} = event.nativeEvent;
 
     contextRef.current.lineTo(offsetX, offsetY);

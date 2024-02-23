@@ -21,6 +21,8 @@ const AllPlays = () => {
      fetchAllPlays();
   }, [])
 
+  console.log('these are the plays at load, ', plays);
+
   return (
     <Container>
       <Typography>Click on Title of Play to view details</Typography>

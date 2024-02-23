@@ -1,7 +1,7 @@
 const db = require('../database');
 module.exports = {
   getAllPlays:  async ()=> {
-    const queryString = 'SELECT * FROM plays'
+    const queryString = 'SELECT * FROM plays ORDER BY play_id'
     try {
      const plays = await db.query(queryString);
      return plays.rows;

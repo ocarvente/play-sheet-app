@@ -9,20 +9,25 @@ import CreatePlay from '../pages/CreatePlay.jsx';
 import EditPlay from '../pages/EditPlay.jsx';
 import PagesAppBar from './PagesAppBar.jsx'
 import CategoriesPage from '../pages/Categories.jsx';
-
+import HomePage from '../pages/HomePage.jsx'
+import Login from '../pages/Login.jsx';
 const App = () => {
 
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [email, setEmail] = useState('');
   return (
     <BrowserRouter>
       <PagesAppBar/>
       <Routes>
-        <Route path="/" element={<Main/>}/>
+        <Route path="/" element={<HomePage email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}/>
+        <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
         <Route path="/allplays" element={<AllPlays/>}/>
         <Route path="/play/:id" element={<PlayPage/>}/>
         <Route path="/random" element={<RandomPlay />}/>
         <Route path="/create" element={<CreatePlay />}/>
         <Route path="/edit/:id" element={<EditPlay />}/>
         <Route path="/categories" element={<CategoriesPage/>}/>
+
       </Routes>
     </BrowserRouter>
 

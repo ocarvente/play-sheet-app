@@ -4,34 +4,30 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container'
 import { useNavigate } from 'react-router-dom'
 
-const HomePage = ({loggedIn, email}) => {
+const HomePage = (props) => {
+  const { loggedIn, email } = props
   const navigate = useNavigate()
-  const handleClick = () => {
-    navigate(`/login`);
 
+  const onButtonClick = () => {
+    navigate('/login');
   }
+
   return (
-    <Container
-      sx={{display: "flex",
-      justifyContent:"center",
-      alignItems:"center",
-      minHeight:"50vh"}}
-    >
-      <Box>
-        <Typography>Welcome!</Typography>
-        <Typography>This is the home page. </Typography>
-        <Button
-          variant='contained'
-          onClick={handleClick}
-          >{loggedIn? 'Log Out': 'Log In'}</Button>
-        <Box>
-          <Typography>{loggedIn ? `your email is ${emai}`: '' }</Typography>
-        </Box>
-      </Box>
-    </Container>
-
-
-
+    <div className="mainContainer">
+      <div className={'titleContainer'}>
+        <div>Welcome!</div>
+      </div>
+      <div>This is the home page.</div>
+      <div className={'buttonContainer'}>
+        <input
+          className={'inputButton'}
+          type="button"
+          onClick={onButtonClick}
+          value={loggedIn ? 'Log out' : 'Log in'}
+        />
+        {loggedIn ? <div>Your email address is {email}</div> : <div />}
+      </div>
+    </div>
   )
 }
 

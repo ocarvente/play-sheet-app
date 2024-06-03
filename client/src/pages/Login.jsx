@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
 
 const Login = (props) => {
   const [email, setEmail] = useState('')
@@ -7,9 +8,10 @@ const Login = (props) => {
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
 
+
   const navigate = useNavigate()
 
-  const onButtonClick = () => {
+  const onButtonClick = async() => {
     setEmailError('')
     setPasswordError('')
 
@@ -32,6 +34,48 @@ const Login = (props) => {
     if (password.length < 7) {
       setPasswordError('The password must be 8 characters or longer')
       return
+    }
+
+    if (await accountExists(email)) {
+      logIn();
+    } else if (
+      window.confirm(
+        'An account does not exist with this email address: ' + email + '. Do you want to create a new account?',
+      )
+    ) {
+      logIn();
+      }
+  }
+
+  const accountExists = async(email) => {
+    try {
+      const body = {'email': email};
+      const response = await axios.post('/check-auth', body);
+      console.log(response.data);
+      return response.data.userExists;
+
+    } catch(e) {
+      console.error('something went wrong when sending data to check-auth endpoint, ', e);
+    }
+
+  }
+
+  const logIn = async () => {
+    try {
+
+      const response = await axios.post('/auth', {email, password});
+      console.log(response.data);
+      if ('success' === response.data.message) {
+        localStorage.setItem('user', JSON.stringify({ email, token: response.data.token }))
+        props.setLoggedIn(true)
+        props.setEmail(email)
+        navigate('/')
+      } else {
+        window.alert('Wrong email or password')
+      }
+
+    } catch(e) {
+      console.error('something went wrong when sending data to check-auth endpoint, ', e);
     }
   }
 

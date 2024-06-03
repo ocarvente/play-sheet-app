@@ -13,8 +13,10 @@ import HomePage from '../pages/HomePage.jsx'
 import Login from '../pages/Login.jsx';
 const App = () => {
 
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState('');
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const [loggedIn, setLoggedIn] = useState(user ? true : false);
+  const [email, setEmail] = useState(user ? user.email : '');
   return (
     <BrowserRouter>
       <PagesAppBar/>

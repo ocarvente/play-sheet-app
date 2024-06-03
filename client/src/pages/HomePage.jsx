@@ -9,6 +9,7 @@ const HomePage = (props) => {
   const navigate = useNavigate()
 
   const onButtonClick = () => {
+    localStorage.removeItem("user")
     navigate('/login');
   }
 

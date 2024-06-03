@@ -27,7 +27,6 @@ const App = () => {
         <Route path="/create" element={<CreatePlay />}/>
         <Route path="/edit/:id" element={<EditPlay />}/>
         <Route path="/categories" element={<CategoriesPage/>}/>
-
       </Routes>
     </BrowserRouter>
 

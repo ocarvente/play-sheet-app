@@ -4,11 +4,18 @@ CREATE DATABASE football;
 
 \c football;
 
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(200) NOT NULL,
+  passcode VARCHAR(200) NOT NULL
+);
+
 CREATE TABLE plays (
   play_id SERIAL PRIMARY KEY,
   play_name VARCHAR(200) NOT NULL,
   play_url_photo TEXT NOT NULL,
-  play_description TEXT NOT NULL
+  play_description TEXT NOT NULL,
+  user_id INTEGER references users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE categories (
@@ -21,6 +28,8 @@ CREATE TABLE categorizedPlays (
   play_id INTEGER references plays(play_id) ON DELETE CASCADE,
   category_id INTEGER references categories(category_id) ON DELETE CASCADE
 );
+
+
 
 CREATE INDEX idx_play_id ON categorizedPlays (play_id);
 CREATE INDEX idx_category_id ON categorizedPlays (category_id);

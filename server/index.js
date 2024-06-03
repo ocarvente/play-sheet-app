@@ -9,10 +9,15 @@ const {
   deletePlay,
   updatePlay,
   checkUser,
+  addUser,
 } = require("./models");
 const path = require("path");
 const app = express();
 var cors = require("cors");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+const jwt = require("jsonwebtoken");
+const jwtSecretKey = "dsfdsfsdfdsvcsvdfgefg";
 
 const PORT = process.env.PORT || 3001;
 
@@ -90,7 +95,27 @@ app.post("/check-auth", async (req, res) => {
       status: user.length === 1 ? "User exists" : "User does not exist",
       userExists: user.length === 1,
     });
-  } catch (e) {}
+  } catch (e) {
+    console.error(e);
+  }
+});
+
+app.post("/auth", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const result = await bcrypt.hash(password, saltRounds);
+    console.log({ email, password: result });
+    const push = await addUser({ email, password: result });
+    let loginData = {
+      email,
+      signInTime: Date.now(),
+    };
+
+    const token = jwt.sign(loginData, jwtSecretKey);
+    res.send({ message: "success", token });
+  } catch (e) {
+    console.error(e);
+  }
 });
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));

@@ -75,4 +75,15 @@ module.exports = {
       console.error("unable to execute finding email query, ", error);
     }
   },
+  addUser: async (data) => {
+    try {
+      const { email, password } = data;
+      console.log(data);
+      const queryString = "INSERT INTO users (email, passcode) VALUES($1, $2)";
+      const result = await db.query(queryString, [email, password]);
+      return result.rows;
+    } catch (e) {
+      console.error(e);
+    }
+  },
 };

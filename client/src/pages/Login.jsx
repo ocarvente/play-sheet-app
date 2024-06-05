@@ -8,6 +8,9 @@ const Login = (props) => {
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
 
+  useEffect(()=>{
+
+  }, [])
 
   const navigate = useNavigate()
 
@@ -71,7 +74,7 @@ const Login = (props) => {
         props.setEmail(email)
         navigate('/')
       } else {
-        window.alert('Wrong email or password')
+        window.alert(response.data.message);
       }
 
     } catch(e) {

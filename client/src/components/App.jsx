@@ -13,10 +13,35 @@ import HomePage from '../pages/HomePage.jsx'
 import Login from '../pages/Login.jsx';
 const App = () => {
 
-  const user = JSON.parse(localStorage.getItem("user"));
 
-  const [loggedIn, setLoggedIn] = useState(user ? true : false);
-  const [email, setEmail] = useState(user ? user.email : '');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [email, setEmail] = useState('');
+  useEffect(() => {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    // If the token/email does not exist, mark the user as logged out
+    if(!user || !user.token) {
+      setLoggedIn(false);
+      return;
+    }
+
+    const verifyToken = async () => {
+      const result = await axios.post('/verify', {headers: {
+        'jwt-token': user.token
+      }})
+      return result;
+    }
+
+    verifyToken().then(r => {
+      console.log('this is the result from useEffect, ', r.data.message);
+      setLoggedIn('success' === r.data.message);
+      setEmail(user.email || '');
+
+    }).catch(e => console.error(e));
+
+  }, [])
+
   return (
     <BrowserRouter>
       <PagesAppBar/>

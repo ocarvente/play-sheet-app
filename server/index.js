@@ -10,6 +10,7 @@ const {
   updatePlay,
   checkUser,
   addUser,
+  getUser,
 } = require("./models");
 const path = require("path");
 const app = express();
@@ -88,12 +89,12 @@ app.patch("/plays/:id", async (req, res) => {
 app.post("/check-auth", async (req, res) => {
   try {
     const { email } = req.body;
-    console.log(req.body);
+    console.log("this is the email being checked, ", req.body);
     const user = await checkUser(email);
-    console.log(user);
+    console.log("this it the user returned after query, ", user);
     res.send({
-      status: user.length === 1 ? "User exists" : "User does not exist",
-      userExists: user.length === 1,
+      status: user.length > 0 ? "User exists" : "User does not exist",
+      userExists: user.length > 0,
     });
   } catch (e) {
     console.error(e);
@@ -103,18 +104,56 @@ app.post("/check-auth", async (req, res) => {
 app.post("/auth", async (req, res) => {
   try {
     const { email, password } = req.body;
-    const result = await bcrypt.hash(password, saltRounds);
-    console.log({ email, password: result });
-    const push = await addUser({ email, password: result });
-    let loginData = {
-      email,
-      signInTime: Date.now(),
-    };
+    const user = await checkUser(email);
+    if (user.length > 1) {
+      res.send({
+        message: "ERROR: There are more than one users with this email.",
+      });
+    }
+    if (user.length === 1) {
+      console.log("this is the user returned, ", user[0]);
+      const match = await bcrypt.compare(password, user[0].passcode);
+      if (!match) {
+        res.send({ message: "Password did not match records" });
+      } else {
+        let loginData = {
+          email,
+          signInTime: Date.now(),
+        };
 
-    const token = jwt.sign(loginData, jwtSecretKey);
-    res.send({ message: "success", token });
+        const token = jwt.sign(loginData, jwtSecretKey);
+        res.send({ message: "success", token });
+      }
+    } else if (user.length == 0) {
+      const result = await bcrypt.hash(password, saltRounds);
+      console.log({ email, password: result });
+      const push = await addUser({ email, password: result });
+      let loginData = {
+        email,
+        signInTime: Date.now(),
+      };
+      const token = jwt.sign(loginData, jwtSecretKey);
+      res.send({ message: "success", token });
+    }
   } catch (e) {
     console.error(e);
+  }
+});
+
+app.post("/verify", async (req, res) => {
+  const tokenHeaderKey = "jwt-token";
+  const authToken = req.body.headers[tokenHeaderKey];
+  try {
+    const verified = await jwt.verify(authToken, jwtSecretKey);
+    if (verified) {
+      res.send({ status: "logged in", message: "success" });
+    } else {
+      // Access Denied
+      res.send({ status: "invalid auth", message: "error" });
+    }
+  } catch (error) {
+    // Access Denied
+    res.send({ status: "invalid auth", message: "error" });
   }
 });
 app.get("*", (req, res) => {
